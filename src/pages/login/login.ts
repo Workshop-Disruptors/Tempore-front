@@ -35,14 +35,13 @@ export class LoginPage {
     console.log(this.doctorLogin)
     this.registerApiProvider.loginDoctor(this.doctorLogin)
     .then((ans)=> {
-        console.log(ans);
         let alert = this.alertCtrl.create({
         title: "Réussi",
         subTitle: ans,
         buttons:  [{
           text: 'OK',
           handler: () => {
-          this.goToMedecin();   
+          this.goToMedecin();  
           }
         }]
        });

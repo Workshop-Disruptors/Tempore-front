@@ -18,7 +18,7 @@ export class DisplayProvider {
       let headers = new Headers();
       headers.append("Content-Type","application/json");
 
-       this.http.get("http://localhost:3000/doctor/list", {headers: headers, withCredentials: true})
+       this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/list", {headers: headers, withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
