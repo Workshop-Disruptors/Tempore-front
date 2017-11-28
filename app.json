@@ -1,0 +1,7 @@
+// app.json    
+{
+        "name": "Tempore",
+        "description": "Le retard est votre allié !",
+        "repository": "https://github.com/Workshop-Disruptors/Tempore-front.git",
+        "keywords": ["Tempore", "retard", "medecin"]
+    }
