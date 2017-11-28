@@ -30,7 +30,7 @@ export class RegisterApiProvider {
       }
 
 
-       this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/register", body, {headers: headers, withCredentials: true})
+       this.http.post("http://localhost:8080/doctor/register", body, {headers: headers, withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -49,7 +49,7 @@ export class RegisterApiProvider {
         logpassword: doctorLogin.password
           }
 
-       this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/login", body, {headers: headers, withCredentials: true})
+       this.http.post("http://localhost:8080/doctor/login", body, {headers: headers, withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -63,7 +63,7 @@ export class RegisterApiProvider {
       let headers = new Headers();
       headers.append("Content-Type","application/json");
 
-       this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/profile", {headers: headers, withCredentials: true})
+       this.http.get("http://localhost:8080/doctor/profile", {headers: headers, withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -81,7 +81,7 @@ export class RegisterApiProvider {
       	delay: newdelay
       }
 
-       this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/profile", body, {headers: headers, withCredentials: true})
+       this.http.post("http://localhost:8080/doctor/profile", body, {headers: headers, withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -95,7 +95,7 @@ export class RegisterApiProvider {
       let headers = new Headers();
       headers.append("Content-Type","application/json");
 
-       this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/logout", {headers: headers, withCredentials: true})
+       this.http.get("http://localhost:8080/doctor/logout", {headers: headers, withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {

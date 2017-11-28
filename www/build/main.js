@@ -153,10 +153,9 @@ var NouveauComptePage = (function () {
             selector: 'page-nouveau-compte',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/nouveau-compte/nouveau-compte.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Nouveau compte\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page5">\n  <form id="nouveauCompte-form4" >\n    <ion-list id="nouveauCompte-list5">\n      <ion-item id="nouveauCompte-input9">\n        <ion-label>\n          Nom\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.name" name="name" type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="nouveauCompte-input10">\n        <ion-label>\n          Email\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.mail" name="mail" type="email" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="nouveauCompte-input11">\n        <ion-label>\n          Mot de passe\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.password" name="password" type="password" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="nouveauCompte-input16">\n        <ion-label>\n          Confirmer le mot de passe\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.passwordConf" name="passwordConf" type="password" placeholder=""></ion-input>\n      </ion-item>\n    </ion-list>\n    <ion-item id="nouveauCompte-input13">\n      <ion-label>\n        Ville\n      </ion-label>\n      <ion-input [(ngModel)]="doctorData.city" name="city" type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="nouveauCompte-input14">\n      <ion-label>\n        Téléphone\n      </ion-label>\n      <ion-input [(ngModel)]="doctorData.tel" type="tel" name="tel" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="nouveauCompte-input15">\n      <ion-label>\n        Description\n      </ion-label>\n      <ion-input [(ngModel)]="doctorData.description" name="descritpion" type="text" placeholder=""></ion-input>\n    </ion-item>\n    <button id="nouveauCompte-button6" ion-button color="stable" block on-click="register()">\n      Enregistrer\n    </button>\n  </form>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/nouveau-compte/nouveau-compte.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__["a" /* RegisterApiProvider */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__["a" /* RegisterApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__["a" /* RegisterApiProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__["a" /* RegisterApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], NouveauComptePage);
     return NouveauComptePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=nouveau-compte.js.map
@@ -364,7 +363,7 @@ var DisplayProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/list", { headers: headers, withCredentials: true })
+            _this.http.get("http://localhost:8080/doctor/list", { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -792,7 +791,7 @@ var RegisterApiProvider = (function () {
                 tel: doctorData.tel,
                 description: doctorData.description
             };
-            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/register", body, { headers: headers, withCredentials: true })
+            _this.http.post("http://localhost:8080/doctor/register", body, { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -810,7 +809,7 @@ var RegisterApiProvider = (function () {
                 logmail: doctorLogin.mail,
                 logpassword: doctorLogin.password
             };
-            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/login", body, { headers: headers, withCredentials: true })
+            _this.http.post("http://localhost:8080/doctor/login", body, { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -824,7 +823,7 @@ var RegisterApiProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/profile", { headers: headers, withCredentials: true })
+            _this.http.get("http://localhost:8080/doctor/profile", { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -840,7 +839,7 @@ var RegisterApiProvider = (function () {
             var body = {
                 delay: newdelay
             };
-            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/profile", body, { headers: headers, withCredentials: true })
+            _this.http.post("http://localhost:8080/doctor/profile", body, { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -853,7 +852,7 @@ var RegisterApiProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/logout", { headers: headers, withCredentials: true })
+            _this.http.get("http://localhost:8080/doctor/logout", { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -863,9 +862,10 @@ var RegisterApiProvider = (function () {
     };
     RegisterApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], RegisterApiProvider);
     return RegisterApiProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=register-api.js.map
