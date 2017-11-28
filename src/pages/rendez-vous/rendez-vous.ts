@@ -55,5 +55,13 @@ export class RendezVousPage {
     })
   }
 
+    doRefresh(refresher) {
+    this.loadDoctors()
+
+    setTimeout(() => {
+      refresher.complete();
+    }, 2000);
+  }
+
   }
 

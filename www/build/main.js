@@ -62,9 +62,15 @@ var RendezVousPage = (function () {
             }
         });
     };
+    RendezVousPage.prototype.doRefresh = function (refresher) {
+        this.loadDoctors();
+        setTimeout(function () {
+            refresher.complete();
+        }, 2000);
+    };
     RendezVousPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-rendez-vous',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/rendez-vous/rendez-vous.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      À l\'heure ?\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page2">\n<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n  <ion-list>\n    <ion-item *ngFor="let doctor of doctors" >\n      <h2>{{doctor.name}} - {{doctor.city}}</h2>\n      <h3>{{doctor.description}} - {{doctor.tel}}</h3>\n      <p>{{doctor.delay}} min de retard </p>\n     </ion-item>\n  </ion-list>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/rendez-vous/rendez-vous.html"*/,
+            selector: 'page-rendez-vous',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/rendez-vous/rendez-vous.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      À l\'heure ?\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page2">\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n  <ion-list>\n    <ion-item *ngFor="let doctor of doctors" >\n      <h2>{{doctor.name}} - {{doctor.city}}</h2>\n      <h3>{{doctor.description}} - {{doctor.tel}}</h3>\n      <p>{{doctor.delay}} min de retard </p>\n     </ion-item>\n  </ion-list>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/rendez-vous/rendez-vous.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__providers_display_display__["a" /* DisplayProvider */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_display_display__["a" /* DisplayProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
