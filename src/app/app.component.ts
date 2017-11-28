@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { RendezVousPage } from '../pages/rendez-vous/rendez-vous';
-import { NouveauMedecinPage } from '../pages/nouveau-medecin/nouveau-medecin';
+import { NouveauComptePage } from '../pages/nouveau-compte/nouveau-compte';
 import { LoginPage } from '../pages/login/login';
 import { MedecinPage } from '../pages/medecin/medecin';
 
@@ -34,9 +34,9 @@ export class MyApp {
   }goToRendezVous(params){
     if (!params) params = {};
     this.navCtrl.setRoot(RendezVousPage);
-  }goToNouveauMedecin(params){
+  }goToNouveauCompte(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(NouveauMedecinPage);
+    this.navCtrl.setRoot(NouveauComptePage);
   }goToLogin(params){
     if (!params) params = {};
     this.navCtrl.setRoot(LoginPage);

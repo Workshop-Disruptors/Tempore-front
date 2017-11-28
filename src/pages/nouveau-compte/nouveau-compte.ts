@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LoginPage } from '../login/login';
 import { MedecinPage } from '../medecin/medecin';
 import { RegisterApiProvider } from '../../providers/register-api/register-api';
 import { AlertController } from 'ionic-angular';
@@ -30,7 +29,6 @@ export class NouveauComptePage {
 
   goToMedecin(params){
     if (!params) params = {};
-    this.navCtrl.push(MedecinPage);
     this.navCtrl.setRoot(MedecinPage);
   }
 
@@ -43,11 +41,11 @@ export class NouveauComptePage {
         console.log(ans);
         let alert = this.alertCtrl.create({
         title: "Réussi",
-        subTitle: ans,
+        subTitle: String(ans),
         buttons: ['OK']
        });
         alert.present();
-        this.goToMedecin();  
+        this.goToMedecin({});  
      },
       (err) =>  {
         console.log(err);

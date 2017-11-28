@@ -23,7 +23,6 @@ export class LoginPage {
 
   goToMedecin(params){
     if (!params) params = {};
-    this.navCtrl.push(MedecinPage);
     this.navCtrl.setRoot(MedecinPage);
   }
   goToNouveauCompte(params){
@@ -37,11 +36,11 @@ export class LoginPage {
     .then((ans)=> {
         let alert = this.alertCtrl.create({
         title: "Réussi",
-        subTitle: ans,
+        subTitle: String(ans),
         buttons:  [{
           text: 'OK',
           handler: () => {
-          this.goToMedecin();  
+          this.goToMedecin({});  
           }
         }]
        });

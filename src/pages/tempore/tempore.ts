@@ -16,13 +16,11 @@ export class TemporePage {
 
   goToMedecin(params){
     if (!params) params = {};
-    this.navCtrl.push(MedecinPage);
     this.navCtrl.setRoot(MedecinPage);
   }
 
   goToRendezVous(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(RendezVousPage);
     this.navCtrl.setRoot(RendezVousPage);
   }
 

@@ -24,7 +24,6 @@ export class MedecinPage {
   
   goToTempore(params){
     if (!params) params = {};
-    this.navCtrl.push(TemporePage);
     this.navCtrl.setRoot(TemporePage);
    }
 
@@ -40,12 +39,12 @@ export class MedecinPage {
         buttons: [{
           text: 'Connexion',
           handler: () => {
-          this.goToLogin();   
+          this.goToLogin({});   
           }
         },{
         text: 'Annuler',
         handler: () => {
-        this.goToTempore();   
+        this.goToTempore({});   
           }
         }]
        });
@@ -55,8 +54,8 @@ export class MedecinPage {
   loadInfo(){
     this.registerApiProvider.infoDoctor()
     .then((ans)=> {
-	   this.delay = ans.delay;
-	   this.name = ans.name;
+	   this.delay = (ans as any).delay;
+	   this.name = (ans as any).name;
      },
       (err) =>  {
 	  if (err="not connected"){
@@ -110,7 +109,7 @@ export class MedecinPage {
   logout(){
 	this.registerApiProvider.logout()
     .then((ans)=> {
-        this.goToTempore();   
+        this.goToTempore({});   
      },
       (err) =>  {
        if (err="not connected"){

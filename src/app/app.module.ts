@@ -8,8 +8,7 @@ import { MedecinPage } from '../pages/medecin/medecin';
 import { LoginPage } from '../pages/login/login';
 import { NouveauComptePage } from '../pages/nouveau-compte/nouveau-compte';
 import { MesInformationsPage } from '../pages/mes-informations/mes-informations';
-import { NouveauMedecinPage } from '../pages/nouveau-medecin/nouveau-medecin';
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,8 +25,7 @@ import { DisplayProvider } from '../providers/display/display';
     MedecinPage,
     LoginPage,
     NouveauComptePage,
-    MesInformationsPage,
-    NouveauMedecinPage
+    MesInformationsPage
   ],
   imports: [
     BrowserModule,
@@ -42,8 +40,7 @@ import { DisplayProvider } from '../providers/display/display';
     MedecinPage,
     LoginPage,
     NouveauComptePage,
-    MesInformationsPage,
-    NouveauMedecinPage
+    MesInformationsPage
   ],
   providers: [
     HttpClientModule,

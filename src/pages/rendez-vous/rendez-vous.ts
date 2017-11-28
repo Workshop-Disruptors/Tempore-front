@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { NouveauMedecinPage } from '../nouveau-medecin/nouveau-medecin';
-import { LoginPage } from '../login/login';
-import { MedecinPage } from '../medecin/medecin';
 import { DisplayProvider } from '../../providers/display/display';
 import { AlertController } from 'ionic-angular';
 
@@ -20,16 +17,6 @@ export class RendezVousPage {
 
   constructor(public navCtrl: NavController, public DisplayProvider: DisplayProvider, public alertCtrl: AlertController) {
      this.loadDoctors()
-  }
-  goToNouveauMedecin(params){
-    if (!params) params = {};
-    this.navCtrl.push(NouveauMedecinPage);
-  }goToLogin(params){
-    if (!params) params = {};
-    this.navCtrl.push(LoginPage);
-  }goToMedecin(params){
-    if (!params) params = {};
-    this.navCtrl.push(MedecinPage);
   }
 
   loadDoctors(){
