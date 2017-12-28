@@ -363,7 +363,7 @@ var DisplayProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/list", { headers: headers, withCredentials: true })
+            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/list", { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -810,7 +810,7 @@ var RegisterApiProvider = (function () {
                 logmail: doctorLogin.mail,
                 logpassword: doctorLogin.password
             };
-            _this.http.post("http://afternoon-river-25926.herokuapp.com/doctor/login", body, { withCredentials: true })
+            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/login", body, { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -824,7 +824,7 @@ var RegisterApiProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/profile", { withCredentials: true })
+            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/profile", { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -840,7 +840,7 @@ var RegisterApiProvider = (function () {
             var body = {
                 delay: newdelay
             };
-            _this.http.post("http://afternoon-river-25926.herokuapp.com/doctor/profile", body, { withCredentials: true })
+            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/profile", body, { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -853,7 +853,7 @@ var RegisterApiProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/logout", { withCredentials: true })
+            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/logout", { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {

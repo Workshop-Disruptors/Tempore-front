@@ -49,7 +49,7 @@ export class RegisterApiProvider {
         logpassword: doctorLogin.password
           }
 
-       this.http.post("http://afternoon-river-25926.herokuapp.com/doctor/login", body, {withCredentials: true})
+       this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/login", body, {withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -63,7 +63,7 @@ export class RegisterApiProvider {
       let headers = new Headers();
       headers.append("Content-Type","application/json");
 
-       this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/profile", {withCredentials: true})
+       this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/profile", {withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -81,7 +81,7 @@ export class RegisterApiProvider {
       	delay: newdelay
       }
 
-       this.http.post("http://afternoon-river-25926.herokuapp.com/doctor/profile", body, {withCredentials: true})
+       this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/profile", body, {withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
@@ -95,7 +95,7 @@ export class RegisterApiProvider {
       let headers = new Headers();
       headers.append("Content-Type","application/json");
 
-       this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/logout", {withCredentials: true})
+       this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/logout", {withCredentials: true})
       .subscribe(ans => {
         resolve(ans);
        }, err => {
