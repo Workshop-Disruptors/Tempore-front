@@ -363,7 +363,7 @@ var DisplayProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("http://localhost:8080/doctor/list", { headers: headers, withCredentials: true })
+            _this.http.get("https://afternoon-river-25926.herokuapp.com/doctor/list", { headers: headers, withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -792,7 +792,7 @@ var RegisterApiProvider = (function () {
                 tel: doctorData.tel,
                 description: doctorData.description
             };
-            _this.http.post("http://localhost:8080/doctor/register", body, { headers: headers, withCredentials: true })
+            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/register", body, { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -810,7 +810,7 @@ var RegisterApiProvider = (function () {
                 logmail: doctorLogin.mail,
                 logpassword: doctorLogin.password
             };
-            _this.http.post("http://localhost:8080/doctor/login", body, { headers: headers, withCredentials: true })
+            _this.http.post("http://afternoon-river-25926.herokuapp.com/doctor/login", body, { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -824,7 +824,7 @@ var RegisterApiProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("http://localhost:8080/doctor/profile", { headers: headers, withCredentials: true })
+            _this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/profile", { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -840,7 +840,7 @@ var RegisterApiProvider = (function () {
             var body = {
                 delay: newdelay
             };
-            _this.http.post("http://localhost:8080/doctor/profile", body, { headers: headers, withCredentials: true })
+            _this.http.post("http://afternoon-river-25926.herokuapp.com/doctor/profile", body, { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -853,7 +853,7 @@ var RegisterApiProvider = (function () {
         return new Promise(function (resolve, reject) {
             var headers = new Headers();
             headers.append("Content-Type", "application/json");
-            _this.http.get("http://localhost:8080/doctor/logout", { headers: headers, withCredentials: true })
+            _this.http.get("http://afternoon-river-25926.herokuapp.com/doctor/logout", { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -863,10 +863,9 @@ var RegisterApiProvider = (function () {
     };
     RegisterApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], RegisterApiProvider);
     return RegisterApiProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=register-api.js.map
