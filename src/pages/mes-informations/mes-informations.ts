@@ -4,6 +4,7 @@ import { MedecinPage } from '../medecin/medecin';
 import { RegisterApiProvider } from '../../providers/register-api/register-api';
 import { AlertController } from 'ionic-angular';
 
+
 @Component({
   selector: 'page-mes-informations',
   templateUrl: 'mes-informations.html',
