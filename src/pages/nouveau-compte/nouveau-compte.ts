@@ -31,7 +31,6 @@ export class NouveauComptePage {
     if (!params) params = {};
     this.navCtrl.setRoot(MedecinPage);
   }
-
   
 
   register(){

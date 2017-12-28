@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TemporePage } from '../tempore/tempore';
 import { LoginPage } from '../login/login';
+import { MesInformationsPage } from '../mes-informations/mes-informations';
 import { NavController } from 'ionic-angular';
 import { RegisterApiProvider } from '../../providers/register-api/register-api';
 import { AlertController } from 'ionic-angular';
@@ -30,6 +31,11 @@ export class MedecinPage {
    goToLogin(params){
     if (!params) params = {};
     this.navCtrl.push(LoginPage);
+  }
+
+   goToMesInformations(params){
+    if (!params) params = {};
+    this.navCtrl.push(MesInformationsPage);
   }
 
   errNotConnected(){

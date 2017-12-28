@@ -15,46 +15,46 @@
         <ion-label>
           Nom
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="doctorData.name" name="name" type="text" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="mesInformations-input18">
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="doctorData.mail" name="mail" type="email" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="mesInformations-input19">
         <ion-label>
           Mot de passe
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="doctorData.password" name="password" type="text" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="mesInformations-input20">
         <ion-label>
           Confirmer le mot de passe
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="doctorData.passwordConf" name="passwordConf" type="text" placeholder=""></ion-input>
       </ion-item>
     </ion-list>
     <ion-item id="mesInformations-input21">
       <ion-label>
         Ville
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="doctorData.city" name="city" type="text" placeholder=""></ion-input>
     </ion-item>
     <ion-item id="mesInformations-input22">
       <ion-label>
         Téléphone
       </ion-label>
-      <ion-input type="tel" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="doctorData.tel" type="tel" type="tel" placeholder=""></ion-input>
     </ion-item>
     <ion-item id="mesInformations-input23">
       <ion-label>
         Description
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input [(ngModel)]="doctorData.description" name="descritpion" type="text" placeholder=""></ion-input>
     </ion-item>
-    <button id="mesInformations-button11" ion-button color="stable" block>
+    <button id="mesInformations-button11" ion-button color="stable" block on-click="update()">
       Enregistrer
     </button>
   </form>

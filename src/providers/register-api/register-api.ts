@@ -39,6 +39,32 @@ export class RegisterApiProvider {
       	})
 };
 
+  updateDoctor(doctorData){
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append("Content-Type","application/json");
+
+      let body = {
+        name: doctorData.name,
+        mail: doctorData.mail,
+        password: doctorData.password,
+        passwordConf: doctorData.passwordConf,
+        city: doctorData.city,
+        tel: doctorData.tel,
+        description: doctorData.description
+      }
+
+
+       this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/update", body, {withCredentials: true})
+      .subscribe(ans => {
+        resolve(ans);
+       }, err => {
+        reject(err);
+      });
+        })
+};
+
+
  loginDoctor(doctorLogin){
   	return new Promise((resolve, reject) => {
       let headers = new Headers();

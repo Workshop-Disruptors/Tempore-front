@@ -89,8 +89,8 @@ var RendezVousPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NouveauComptePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -169,7 +169,7 @@ var NouveauComptePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TemporePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rendez_vous_rendez_vous__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -218,9 +218,9 @@ var TemporePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nouveau_compte_nouveau_compte__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_register_api_register_api__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_register_api_register_api__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -386,9 +386,89 @@ var DisplayProvider = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesInformationsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__medecin_medecin__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__ = __webpack_require__(42);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var MesInformationsPage = (function () {
+    function MesInformationsPage(navCtrl, registerApiProvider, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.registerApiProvider = registerApiProvider;
+        this.alertCtrl = alertCtrl;
+        this.doctorData = {
+            "name": "",
+            "mail": "",
+            "password": "",
+            "passwordConf": "",
+            "city": "",
+            "tel": "",
+            "description": ""
+        };
+    }
+    MesInformationsPage.prototype.goToMedecin = function (params) {
+        if (!params)
+            params = {};
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__medecin_medecin__["a" /* MedecinPage */]);
+    };
+    MesInformationsPage.prototype.update = function () {
+        var _this = this;
+        console.log(this.doctorData);
+        this.registerApiProvider.updateDoctor(this.doctorData)
+            .then(function (ans) {
+            console.log(ans);
+            var alert = _this.alertCtrl.create({
+                title: "Réussi",
+                subTitle: String(ans),
+                buttons: ['OK']
+            });
+            alert.present();
+            _this.goToMedecin({});
+        }, function (err) {
+            console.log(err);
+            var alert = _this.alertCtrl.create({
+                title: "Erreur",
+                subTitle: err.error,
+                buttons: ['OK']
+            });
+            alert.present();
+        });
+    };
+    MesInformationsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-mes-informations',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/mes-informations/mes-informations.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Mes informations\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page7">\n  <form id="mesInformations-form6">\n    <ion-list id="mesInformations-list7">\n      <ion-item id="mesInformations-input17">\n        <ion-label>\n          Nom\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.name" name="name" type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="mesInformations-input18">\n        <ion-label>\n          Email\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.mail" name="mail" type="email" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="mesInformations-input19">\n        <ion-label>\n          Mot de passe\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.password" name="password" type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="mesInformations-input20">\n        <ion-label>\n          Confirmer le mot de passe\n        </ion-label>\n        <ion-input [(ngModel)]="doctorData.passwordConf" name="passwordConf" type="text" placeholder=""></ion-input>\n      </ion-item>\n    </ion-list>\n    <ion-item id="mesInformations-input21">\n      <ion-label>\n        Ville\n      </ion-label>\n      <ion-input [(ngModel)]="doctorData.city" name="city" type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="mesInformations-input22">\n      <ion-label>\n        Téléphone\n      </ion-label>\n      <ion-input [(ngModel)]="doctorData.tel" type="tel" type="tel" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="mesInformations-input23">\n      <ion-label>\n        Description\n      </ion-label>\n      <ion-input [(ngModel)]="doctorData.description" name="descritpion" type="text" placeholder=""></ion-input>\n    </ion-item>\n    <button id="mesInformations-button11" ion-button color="stable" block on-click="update()">\n      Enregistrer\n    </button>\n  </form>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/mes-informations/mes-informations.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__["a" /* RegisterApiProvider */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_register_api_register_api__["a" /* RegisterApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], MesInformationsPage);
+    return MesInformationsPage;
+}());
+
+//# sourceMappingURL=mes-informations.js.map
+
+/***/ }),
+
+/***/ 206:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(228);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 
 
@@ -399,7 +479,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -407,17 +487,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tempore_tempore__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_rendez_vous_rendez_vous__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_medecin_medecin__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_medecin_medecin__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_nouveau_compte_nouveau_compte__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_mes_informations_mes_informations__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_mes_informations_mes_informations__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common_http__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_register_api_register_api__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_register_api_register_api__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_display_display__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -488,7 +568,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -500,7 +580,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_rendez_vous_rendez_vous__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_nouveau_compte_nouveau_compte__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_medecin_medecin__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_medecin_medecin__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tempore_tempore__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -571,42 +651,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 283:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesInformationsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var MesInformationsPage = (function () {
-    function MesInformationsPage(navCtrl) {
-        this.navCtrl = navCtrl;
-    }
-    MesInformationsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-mes-informations',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/mes-informations/mes-informations.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Mes informations\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page7">\n  <form id="mesInformations-form6">\n    <ion-list id="mesInformations-list7">\n      <ion-item id="mesInformations-input17">\n        <ion-label>\n          Nom\n        </ion-label>\n        <ion-input type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="mesInformations-input18">\n        <ion-label>\n          Email\n        </ion-label>\n        <ion-input type="email" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="mesInformations-input19">\n        <ion-label>\n          Mot de passe\n        </ion-label>\n        <ion-input type="text" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="mesInformations-input20">\n        <ion-label>\n          Confirmer le mot de passe\n        </ion-label>\n        <ion-input type="text" placeholder=""></ion-input>\n      </ion-item>\n    </ion-list>\n    <ion-item id="mesInformations-input21">\n      <ion-label>\n        Ville\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="mesInformations-input22">\n      <ion-label>\n        Téléphone\n      </ion-label>\n      <ion-input type="tel" placeholder=""></ion-input>\n    </ion-item>\n    <ion-item id="mesInformations-input23">\n      <ion-label>\n        Description\n      </ion-label>\n      <ion-input type="text" placeholder=""></ion-input>\n    </ion-item>\n    <button id="mesInformations-button11" ion-button color="stable" block>\n      Enregistrer\n    </button>\n  </form>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/mes-informations/mes-informations.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
-    ], MesInformationsPage);
-    return MesInformationsPage;
-}());
-
-//# sourceMappingURL=mes-informations.js.map
-
-/***/ }),
-
-/***/ 41:
+/***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -614,8 +659,9 @@ var MesInformationsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tempore_tempore__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_register_api_register_api__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mes_informations_mes_informations__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_register_api_register_api__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -625,6 +671,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -647,6 +694,11 @@ var MedecinPage = (function () {
         if (!params)
             params = {};
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+    };
+    MedecinPage.prototype.goToMesInformations = function (params) {
+        if (!params)
+            params = {};
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__mes_informations_mes_informations__["a" /* MesInformationsPage */]);
     };
     MedecinPage.prototype.errNotConnected = function () {
         var _this = this;
@@ -740,10 +792,10 @@ var MedecinPage = (function () {
     };
     MedecinPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-medecin',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/medecin/medecin.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Medecin\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page3">\n  <div id="medecin-container3"></div>\n  <button id="medecin-button7" ion-button color="danger" block on-click="add10()">\n    + 10 min\n  </button>\n  <div id="medecin-markdown8" style="text-align:center;" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n     Retard actuel : {{delay}} MIN\n    </p>\n  </div>\n  <button id="medecin-button8" ion-button color="secondary" block on-click="remove10()">\n    - 10 min\n  </button>\n    <div class="spacer" style="height:10px;" id="medecin-spacer4"></div>\n    <button id="medecin-button9" ion-button clear color="positive" block on-click="raz()">\n    RAZ\n  </button>\n    <div class="spacer" style="height:100px;" id="medecin-spacer5"></div>\n    <div id="medecin-markdown8" style="text-align:center;" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      {{name}} \n    </p>\n  </div>\n  <button id="medecin-button10" ion-button clear color="positive" block>\n    Mettre à jour mes informations\n  </button>\n    <button id="medecin-button11" ion-button clear color="danger" block on-click="logout()">\n    Logout\n  </button>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/medecin/medecin.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_4__providers_register_api_register_api__["a" /* RegisterApiProvider */]]
+            selector: 'page-medecin',template:/*ion-inline-start:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/medecin/medecin.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Medecin\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page3">\n  <div id="medecin-container3"></div>\n  <button id="medecin-button7" ion-button color="danger" block on-click="add10()">\n    + 10 min\n  </button>\n  <div id="medecin-markdown8" style="text-align:center;" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n     Retard actuel : {{delay}} MIN\n    </p>\n  </div>\n  <button id="medecin-button8" ion-button color="secondary" block on-click="remove10()">\n    - 10 min\n  </button>\n    <div class="spacer" style="height:10px;" id="medecin-spacer4"></div>\n    <button id="medecin-button9" ion-button clear color="positive" block on-click="raz()">\n    RAZ\n  </button>\n    <div class="spacer" style="height:100px;" id="medecin-spacer5"></div>\n    <div id="medecin-markdown8" style="text-align:center;" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      {{name}} \n    </p>\n  </div>\n  <button id="medecin-button10" ion-button clear color="positive" block on-click="goToMesInformations()">\n    Mettre à jour mes informations\n  </button>\n    <button id="medecin-button11" ion-button clear color="danger" block on-click="logout()">\n    Logout\n  </button>\n</ion-content>`/*ion-inline-end:"/Users/gael/Documents/GitHub/Tempore-front/src/pages/medecin/medecin.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_5__providers_register_api_register_api__["a" /* RegisterApiProvider */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_register_api_register_api__["a" /* RegisterApiProvider */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_5__providers_register_api_register_api__["a" /* RegisterApiProvider */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
     ], MedecinPage);
     return MedecinPage;
 }());
@@ -752,7 +804,7 @@ var MedecinPage = (function () {
 
 /***/ }),
 
-/***/ 51:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -795,6 +847,29 @@ var RegisterApiProvider = (function () {
                 description: doctorData.description
             };
             _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/register", body, { withCredentials: true })
+                .subscribe(function (ans) {
+                resolve(ans);
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    ;
+    RegisterApiProvider.prototype.updateDoctor = function (doctorData) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var headers = new Headers();
+            headers.append("Content-Type", "application/json");
+            var body = {
+                name: doctorData.name,
+                mail: doctorData.mail,
+                password: doctorData.password,
+                passwordConf: doctorData.passwordConf,
+                city: doctorData.city,
+                tel: doctorData.tel,
+                description: doctorData.description
+            };
+            _this.http.post("https://afternoon-river-25926.herokuapp.com/doctor/update", body, { withCredentials: true })
                 .subscribe(function (ans) {
                 resolve(ans);
             }, function (err) {
@@ -874,5 +949,5 @@ var RegisterApiProvider = (function () {
 
 /***/ })
 
-},[205]);
+},[206]);
 //# sourceMappingURL=main.js.map
