@@ -14,7 +14,6 @@ export class MesInformationsPage {
   
   doctorData={
     "name": "",
-    "mail": "",
     "password": "",
     "passwordConf": "",
     "city": "",

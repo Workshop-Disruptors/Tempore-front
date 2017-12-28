@@ -46,7 +46,6 @@ export class RegisterApiProvider {
 
       let body = {
         name: doctorData.name,
-        mail: doctorData.mail,
         password: doctorData.password,
         passwordConf: doctorData.passwordConf,
         city: doctorData.city,
